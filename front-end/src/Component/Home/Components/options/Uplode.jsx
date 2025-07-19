@@ -28,7 +28,7 @@ const Uplode = () => {
 
   const fetchFiles = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/files", {
+      const res = await fetch("https://digitallocker.onrender.com/api/files", {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const Uplode = () => {
 
   // 📂 Delete file
   const deleteFile = async (id) => {
-    await fetch(`http://localhost:3000/api/deleteFile/${id}`, {
+    await fetch(`https://digitallocker.onrender.com/api/deleteFile/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -88,7 +88,7 @@ const Uplode = () => {
   };
 
   const updateFile = async () => {
-    await fetch(`http://localhost:3000/api/renameFile/${renameId}`, {
+    await fetch(`https://digitallocker.onrender.com/api/renameFile/${renameId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -104,7 +104,7 @@ const Uplode = () => {
   // ⬇️ Download
 const downloadFile = async (fileId) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/files/${fileId}/download`, {
+    const response = await fetch(`https://digitallocker.onrender.com/files/${fileId}/download`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`, // if your backend requires it
@@ -186,7 +186,7 @@ const downloadFile = async (fileId) => {
               <div className="item" key={index}>
                 <div className="filename">
                   <a
-                    href={`http://localhost:3000/api/files/${file._id}/view`}
+                    href={`https://digitallocker.onrender.com/api/files/${file._id}/view`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

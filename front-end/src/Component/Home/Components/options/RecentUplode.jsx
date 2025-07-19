@@ -8,7 +8,7 @@ export const RecentUpload = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/files', {
+        const response = await fetch('https://digitallocker.onrender.com/api/files', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export const RecentUpload = () => {
             <div className="item" key={index}>
               <div className="filename">
                 <a
-                  href={`http://localhost:3000/api/files/${file._id}/view`}
+                  href={`https://digitallocker.onrender.com/api/files/${file._id}/view`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
