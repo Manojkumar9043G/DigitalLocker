@@ -82,3 +82,15 @@ exports.renameFile = async (req, res) => {
     res.status(500).json({ success: false, msg: "Error renaming the file" });
   }
 };
+
+exports.downloadFile = async (req, res) => {
+  try {
+    const file = await File.findById(req.params.id);
+    if (!file) return res.status(404).send('File not found');
+
+    res.download(file.path, file.name); // Replace with correct file location
+  } catch (err) {
+    console.error("Download error:", err.message);
+    res.status(500).send("Server error");
+  }
+};
