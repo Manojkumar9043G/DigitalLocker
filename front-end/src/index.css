@@ -188,6 +188,8 @@ button {
   border-radius: 4px;
   color: white;
   cursor: pointer;
+  margin-bottom: 15px;
+  margin-left: 560px;
 }
 
 /* Responsive layout for mobile screens */
@@ -511,4 +513,26 @@ button:hover {
 }
 .renameActive{
   display: block;
+}
+
+
+@media (max-width : 720px) {
+  .upload-files .item{
+    margin-left: 15px;
+    width: 350px;
+  }
+  .menu{
+    right: 0;
+  }
+  .renameInputs{
+    top: 400px;
+    width: 380px;
+    left: 20px;
+  }
+  .upload-header{
+    flex-direction: column;
+  }
+  .logout-btn{
+    margin-left: 55px;
+  }
 }

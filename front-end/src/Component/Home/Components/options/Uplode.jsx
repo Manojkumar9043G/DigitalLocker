@@ -177,7 +177,7 @@ const downloadFile = async (fileId) => {
         </div>
       </div>
 
-      <div className="files">
+      <div className="files uploadfiles">
         <div className="recent-upload-container upload-files">
           {files.length === 0 ? (
             <p>No uploads found.</p>
