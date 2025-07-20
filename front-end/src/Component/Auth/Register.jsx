@@ -27,6 +27,8 @@ function Register({background}){
     async function handleSubmit(e) {
         e.preventDefault();
 
+        console.log('hi');
+
         try {
             const response = await fetch('https://digitallocker.onrender.com/api/register', {
             method: 'POST',
