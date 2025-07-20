@@ -13,14 +13,14 @@ exports.register = async (req, res) => {
         console.log("Registering:", name, email); 
 
         if (!name || !email || !password) {
-            return res.status(400).json({ success:false, msg: 'Please enter all fields' });
+            return res.status(400).json({ success: false, msg: 'Please enter all fields' });
         }
 
         const isExest = await User.findOne({ email });
         console.log("Is existing user:", isExest); 
 
         if (isExest) {
-            return res.status(400).json({ success:false, msg: 'This email is already registered' });
+            return res.status(400).json({ success: false, msg: 'This email is already registered' });
         }
 
         const Hashing = await bcrypt.hash(password, 10);
@@ -32,12 +32,14 @@ exports.register = async (req, res) => {
 
         await user.save();
 
-        res.status(200).json({ success:true, msg: 'User created' });
+        res.status(200).json({ success: true, msg: 'User created' });
+
     } catch (error) {
         console.error("Error in registration:", error);
-        res.status(400).send('Error in registration');
+        res.status(400).json({ success: false, msg: 'Error in registration' });  // ✅ return valid JSON
     }
 };
+
 
 
 exports.login = async (req,res) =>{

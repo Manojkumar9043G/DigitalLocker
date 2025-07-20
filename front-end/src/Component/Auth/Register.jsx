@@ -24,23 +24,34 @@ function Register({background}){
         })
     }
 
-    async function handleSubmit(e){
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        const response = await  fetch('https://digitallocker.onrender.com/api/register',{
+        try {
+            const response = await fetch('https://digitallocker.onrender.com/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(form)
-        })
-        const message = await response.json();
-        if(message.success){
-            natived('/');
-        }else{
-            SetError(message.msg);
+            body: JSON.stringify(form),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+            // ✅ Registration successful
+            natived('/'); // Navigate to home
+            } else {
+            // ❌ Registration failed with message
+            SetError(data.msg || 'Registration failed');
+            }
+        } catch (err) {
+            // ❌ Server didn't return JSON / Fetch failed (e.g., CORS or network error)
+            SetError('Something went wrong. Please try again later.');
+            console.error('Registration error:', err);
         }
-    }
+}
+
 
     return(
         <>  
