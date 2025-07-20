@@ -7,6 +7,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 exports.register = async (req, res) => {
     try {
+        console.log('hi');
         const { name, email, password } = req.body;
 
         console.log("Registering:", name, email); 

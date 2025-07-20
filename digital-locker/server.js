@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 
-mongoose.connect('mongodb://localhost:27017/digital-locker',{
+mongoose.connect('mongodb+srv://manojvasanth57986:GahB4n19kPeehbST@digital-locker.zurrnqp.mongodb.net/?retryWrites=true&w=majority&appName=digital-locker',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
